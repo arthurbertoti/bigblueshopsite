@@ -11,7 +11,6 @@ export default function Router() {
                 <Navbar />
                 <Routes>
                     <Route path="/" element={<DefaultPage />} >
-                        <Route path="teste" element={<CustomPaginationActionsTable/>} />
                         <Route index element={"home"} />
                         <Route path="products" element={<Products/>} />
                         <Route path="products/:id" element={<Products/>} />

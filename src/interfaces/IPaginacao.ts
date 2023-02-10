@@ -1,4 +1,4 @@
-export interface IPaginacao<T> {
+export interface IPaginacao<T = unknown> {
     page: number
     size: number
     totalPages: number
