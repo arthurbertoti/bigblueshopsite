@@ -1,6 +1,6 @@
 import { useFetch } from '../../hooks/useFetch';
 import ICategory from '../../interfaces/ICategory';
-import TableComponent from '../../components/Table';
+import TableComponent from '../../components/TableView';
 import { Button } from '@mui/material';
 
 export default function Categories() {
@@ -14,13 +14,24 @@ export default function Categories() {
         }
     });
 
+    const filterData = null;
+    const filterName = null;
+
+
     return (
-        <section>
-            <h1>Todos os produtos</h1>
-            {TableComponent(headers, bodyData, isFetching, error)}
+        <>
+            <h1>Todas as categorias</h1>
+            {TableComponent(
+                headers,
+                bodyData,
+                isFetching,
+                error,
+                filterData,
+                filterName
+            )}
             <Button variant="outlined">
                 Nova categoria
             </Button>
-        </section>
+        </>
     );
 }

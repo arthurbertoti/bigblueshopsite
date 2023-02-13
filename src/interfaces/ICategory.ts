@@ -1,6 +1,6 @@
 import IProduct from "./IProduct";
 
-export default interface IRestaurante {
+export default interface ICategory {
   id: number
   name: string
   description: string
