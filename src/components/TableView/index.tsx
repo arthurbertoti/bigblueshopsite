@@ -24,6 +24,21 @@ export default function TableComponent<T = unknown>(
 ) {
 
   const [open, setOpen] = React.useState(false);
+
+  const handleInfo = (id: number) => {
+    console.log(id);
+  }
+  
+  const handleEdit = (id: number) => {
+    // chame a função de atualização aqui
+    console.log(id);
+  }
+
+  const handleDelete = (id: number) => {
+    console.log(id);
+    // chame a função de deleção aqui
+  }
+  
   const handleModalOpen = (modalType: string, labelNames: string[]) => () => {
     setOpen(true);
   };
@@ -32,35 +47,11 @@ export default function TableComponent<T = unknown>(
 
   const handleClose = () => setOpen(false);
 
-  const rowInput = () => {
-    return (
-      <>
-        <IconButton color="inherit"
-          onClick={handleModalOpen("info", labelNames)}
-        >
-          <InfoIcon fontSize="small" />
-        </IconButton>
-        <IconButton color="inherit"
-          onClick={handleModalOpen("edit", labelNames)}
-        >
-          <EditIcon fontSize="small" />
-        </IconButton>
-        <IconButton color="inherit"
-          onClick={handleModalOpen("delete", labelNames)}
-        >
-          <DeleteIcon fontSize="small" />
-        </IconButton>
-      </>
-    );
-  };
-
-
-
 
   /*<Button onClick={handleOpen}>Abrir modal</Button>
                /*<Modal open={open} handleClose={handleClose}>
-                    <h1>Modal</h1>
-                </Modal>*/
+          <h1>Modal</h1>
+        </Modal>*/
   const [search, setSearch] = React.useState('');
 
   const handleSearch = (search: string) => {
@@ -152,7 +143,23 @@ export default function TableComponent<T = unknown>(
                 </TableCell>
               ))}
               <TableCell align="right">
-                {rowInput()}
+                <>
+                  <IconButton color="inherit"
+                    // onClick={handleInfo(row.id)}
+                  >
+                    <InfoIcon fontSize="small" />
+                  </IconButton>
+                  <IconButton color="inherit"
+                    // onClick={handleEdit(row.id)}
+                  >
+                    <EditIcon fontSize="small" />
+                  </IconButton>
+                  <IconButton color="inherit"
+                    // onClick={handleDelete(row.id)}
+                  >
+                    <DeleteIcon fontSize="small" />
+                  </IconButton>
+                </>
               </TableCell>
             </TableRow>
           ))}
