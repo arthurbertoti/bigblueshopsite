@@ -4,7 +4,8 @@ import TableComponent from '../../components/TableView';
 import { Button } from '@mui/material';
 
 export default function Categories() {
-    const { data: categories, error, isFetching } = useFetch<ICategory[]>('categories');
+    const url = 'categories';
+    const { data: categories, error, isFetching } = useFetch<ICategory[]>(url);
     const headers = ["Categoria", "Código", "Produtos cadastrados"];
     const bodyData = categories?.map(category => {
         return {
@@ -24,6 +25,7 @@ export default function Categories() {
             {TableComponent(
                 headers,
                 bodyData,
+                url,
                 isFetching,
                 error,
                 filterData,

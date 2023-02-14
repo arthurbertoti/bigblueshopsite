@@ -4,7 +4,8 @@ import TableComponent from '../../components/TableView';
 import { Button } from '@mui/material';
 
 export default function Orders() {
-    const { data: orders, error, isFetching } = useFetch<IOrder[]>('orders');
+    const url = 'orders';
+    const { data: orders, error, isFetching } = useFetch<IOrder[]>(url);
     const headers = ["Número", "Data/Hora", "Cliente", "Quantidade"];
 
     const bodyData = orders?.map(order => {
@@ -25,6 +26,7 @@ export default function Orders() {
             {TableComponent(
                 headers,
                 bodyData,
+                url,
                 isFetching,
                 error,
                 filterData,

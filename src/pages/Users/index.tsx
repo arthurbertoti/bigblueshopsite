@@ -4,7 +4,8 @@ import TableComponent from '../../components/TableView';
 import { Button } from '@mui/material';
 
 export default function Users() {
-    const { data: users, error, isFetching } = useFetch<IUser[]>('users');
+    const url = 'users';
+    const { data: users, error, isFetching } = useFetch<IUser[]>(url);
     const headers = ["Nome", "Cargo", "Rule", "Email", "Username"];
 
     const filterData = [
@@ -45,6 +46,7 @@ export default function Users() {
             {TableComponent(
                 headers,
                 bodyData,
+                url,
                 isFetching,
                 error,
                 filterData,

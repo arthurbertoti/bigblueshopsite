@@ -5,7 +5,8 @@ import ICategory from '../../interfaces/ICategory';
 import { Button } from '@mui/material';
 
 export default function Products() {
-    const { data: products, error, isFetching } = useFetch<IProduct[]>('products');
+    const url = 'products';
+    const { data: products, error, isFetching } = useFetch<IProduct[]>(url);
 
     const { data: categories } = useFetch<ICategory[]>('categories');
 
@@ -39,6 +40,7 @@ export default function Products() {
             {TableComponent(
                 headers,
                 bodyData,
+                url,
                 isFetching,
                 error,
                 filterData,

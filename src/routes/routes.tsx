@@ -1,3 +1,4 @@
+import React from "react";
 import { Route, BrowserRouter, Routes } from 'react-router-dom'; import DefaultPage from '../components/DefaultPage';
 import Navbar from '../components/Navbar';
 import Categories from '../pages/Categories';
